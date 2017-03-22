@@ -1,0 +1,32 @@
+Profile = {}
+
+Profile.init = function(){
+  this.initHandlers()
+}
+
+Profile.initHandlers = function(){
+  this.getConnections()
+
+  $('.like-icon').on("click", function(e){
+    $.ajax({
+      url: "/connections/",
+      data: {id: $(e.target).attr("data-profile-id")},
+      method: "post",
+      success: function(result){
+        alert()
+      }
+    })
+
+  })
+}
+
+
+Profile.getConnections = function(){
+  $.ajax({
+    url: "/connections/index",
+    // data: {id: id, limit: 9},
+    success: function(result){      
+      
+    }
+  });
+}

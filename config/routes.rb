@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+
+  get 'timeline/index'
+
+  get 'landing/index'
+
+  devise_for :users
+  get 'landing/index'
+
+  authenticated :user do
+    devise_scope :user do
+      root to: "timeline#index", :as => "timeline"
+    end
+  end
+
+  unauthenticated do
+    devise_scope :user do
+      root to: "landing#index", :as => "unauthenticated"
+    end
+  end
+
+  resources :connections
+  resources :profiles, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

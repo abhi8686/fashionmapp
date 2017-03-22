@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12" align="center">  
+      <img src="http://placehold.it/150x150">
+      <button class="btn btn-primary like-icon" data-profile-id="<%= @profile.id %>">Like </button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%=  render "connections" %>
+    <div class="col-md-6" align="center">
+      hi
+    </div>
+    <%= render "notifications" %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  Profile.init()
+</script>
